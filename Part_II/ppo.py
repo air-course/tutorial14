@@ -80,7 +80,6 @@ class ActorCritic(nn.Module):
 
         dist = torch.distributions.Normal(mu, std)
 
-        # Since actions were clipped, this is an approximation.
         log_prob = dist.log_prob(actions).sum(dim=-1)
         entropy = dist.entropy().sum(dim=-1)
 
